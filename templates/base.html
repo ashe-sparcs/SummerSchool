@@ -57,8 +57,8 @@
                   </ul>
                 </li>
                 <li id="nav-registration"><a href="#registration">Registration</a></li>
-                <li id="nav-gallery"><a href="#gallery">Gallery</a></li>
-                <li id="nav-qanda"><a href="#faq">Q&A(FAQ)</a></li>
+                <li id="nav-gallery"><a href="/gallery">Gallery</a></li>
+                <li id="nav-faq"><a href="/faq">FAQ</a></li>
                 <li id="nav-contact"><a href="#contact">Contact Us</a></li>
               </ul>
             </div>
@@ -85,6 +85,16 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/media/js/jquery-3.1.1.min.js"></script>
     <script src="/media/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('.dropdown').hover(function() {
+                $(this).addClass('open');
+            },
+            function() {
+                $(this).removeClass('open');
+            });
+        });
+    </script>
     {% block script %}
     {% endblock %}
 </body>

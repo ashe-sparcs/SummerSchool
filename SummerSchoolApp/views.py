@@ -15,3 +15,13 @@ def about(request):
 def base(request):
     context = {}
     return render(request, 'base.html', context)
+
+
+def gallery(request):
+    context = {}
+    return render(request, 'gallery.html', context)
+
+
+def faq(request):
+    context = {}
+    return render(request, 'faq.html', context)
