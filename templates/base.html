@@ -21,10 +21,10 @@
     <![endif]-->
 
     <!-- Custom styles for this template -->
-    <link href="/media/css/base.css" rel="stylesheet">
+    <link href="/media/css/base.css" type="text/css" rel="stylesheet">
     {% block stylesheet %}{% endblock %}
 </head>
-<body style="padding-top: 50px;">
+<body>
     <!-- LOGO IMAGE
     ================================================== -->
     <!-- NAVBAR
@@ -59,7 +59,7 @@
                 <li id="nav-registration"><a href="#registration">Registration</a></li>
                 <li id="nav-gallery"><a href="/gallery">Gallery</a></li>
                 <li id="nav-faq"><a href="/faq">FAQ</a></li>
-                <li id="nav-contact"><a href="#contact">Contact Us</a></li>
+                <li id="nav-contact"><a href="/contact">Contact Us</a></li>
               </ul>
             </div>
           </div>
@@ -70,13 +70,55 @@
     {% endblock %}
     <!-- Wrap the rest of the page in another container to center all the content. -->
     <div class="container marketing">
-      {% block content %}
-      {% endblock %}
+      <div class="row">
+          {% block content %}
+          {% endblock %}
+      </div>
       <hr class="featurette-divider">
       <!-- FOOTER -->
       <footer>
+        <!--
         <p class="pull-right"><a href="#">Back to top</a></p>
         <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        -->
+              <div class="row text-center">
+                <div class="col-lg-12">
+                  <div class="col-md-3">
+                    <ul class="nav nav-pills nav-stacked">
+                      <li><a href="#">Site 1</a></li>
+                      <li><a href="#">Site 5</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-3">
+                    <ul class="nav nav-pills nav-stacked">
+                      <li><a href="#">Site 2</a></li>
+                      <li><a href="#">Site 6</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-3">
+                    <ul class="nav nav-pills nav-stacked">
+                      <li><a href="#">Site 3</a></li>
+                      <li><a href="#">Site 7</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-3">
+                    <ul class="nav nav-pills nav-stacked">
+                      <li><a href="#">Site 4</a></li>
+                      <li><a href="#">Site 8</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <hr class="featurette-divider">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="nav nav-pills nav-justified">
+                            <li><a href="/">© 2017 KAIST International Relations Team</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy</a></li>
+                        </ul>
+                    </div>
+                </div>
       </footer>
     </div><!-- /.container -->
 

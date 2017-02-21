@@ -25,3 +25,8 @@ def gallery(request):
 def faq(request):
     context = {}
     return render(request, 'faq.html', context)
+
+
+def contact(request):
+    context = {}
+    return render(request, 'contact.html', context)

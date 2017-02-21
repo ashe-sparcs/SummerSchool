@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^base/', views.base),
     url(r'^gallery/', views.gallery),
     url(r'^faq/', views.faq),
+    url(r'^contact/', views.contact),
 ]
