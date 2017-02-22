@@ -40,3 +40,8 @@ def review(request):
 def review_one(request):
     context = {}
     return render(request, 'review_one.html', context)
+
+
+def dates(request):
+    context = {}
+    return render(request, 'dates.html', context)

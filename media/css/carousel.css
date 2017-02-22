@@ -28,6 +28,23 @@
 }
 
 
+.gallery {
+    margin: auto;
+}
+.thumbnail {
+    /*width: 304px;*/
+    /*height: 171px;*/
+    background-size: cover;
+    cursor: pointer;
+}
+.thumbnail-title {
+    display: none;
+}
+.review-image {
+  margin: auto;
+}
+
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 

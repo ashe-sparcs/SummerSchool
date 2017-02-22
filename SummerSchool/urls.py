@@ -27,4 +27,7 @@ urlpatterns = [
     url(r'^contact/', views.contact),
     url(r'^review/$', views.review),
     url(r'^review/one', views.review_one),
+    url(r'^dates', views.dates),
+    url(r'^track1', views.track1),
+    url(r'^track2', views.track2),
 ]
