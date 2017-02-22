@@ -2,7 +2,36 @@
     margin: auto;
 }
 .thumbnail {
-    width: 320px;
-    height: 180px;
+    /*width: 304px;*/
+    /*height: 171px;*/
     background-size: cover;
+    cursor: pointer;
+}
+.thumbnail-title {
+    display: none;
+}
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  /*width: 1000px;*/
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+.modal-image {
+    background-size: cover;
+    margin: auto;
+}
+.modal-body {
 }

@@ -25,4 +25,6 @@ urlpatterns = [
     url(r'^gallery/', views.gallery),
     url(r'^faq/', views.faq),
     url(r'^contact/', views.contact),
+    url(r'^review/$', views.review),
+    url(r'^review/one', views.review_one),
 ]

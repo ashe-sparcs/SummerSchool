@@ -30,3 +30,13 @@ def faq(request):
 def contact(request):
     context = {}
     return render(request, 'contact.html', context)
+
+
+def review(request):
+    context = {}
+    return render(request, 'review.html', context)
+
+
+def review_one(request):
+    context = {}
+    return render(request, 'review_one.html', context)
