@@ -1,7 +1,9 @@
 .input-group {
     width: 100%;
 }
-
+#faq-search {
+    border-radius: 4px;
+}
 /* enable absolute positioning */
 .inner-addon {
     position: relative;

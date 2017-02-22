@@ -15,16 +15,19 @@
                 <div class="col-lg-6">
                     <h1>Testimonials</h1>
                 </div>
-                <div class="col-lg-6 faq-search">
+                <div class="col-lg-6 review-search">
                     <br>
-                    <div class="input-group" id="adv-search">
-                        <input id="faq-search" onkeyup="faqSearch()" type="text" class="form-control" placeholder="Search for title and content" />
-                        <div class="input-group-btn">
-                            <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                            </div>
+                    <form action="." method="get">
+                        <div class="input-group" id="adv-search">
+
+                                <input id="review-search" name="search_word" type="text" class="form-control" placeholder="Search for student, title, content" />
+                                <div class="input-group-btn">
+                                    <div class="btn-group" role="group">
+                                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                    </div>
+                                </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -32,72 +35,20 @@
         <thead>
             <tr>
                 <th>#</th>
+                <th>Student</th>
                 <th>Title</th>
-                <th>Hit</th>
                 <th>Date</th>
             </tr>
         </thead>
         <tbody>
-          <tr class="clickable-row" data-href="one">
-            <td>1</td>
-            <td>Happy Summer School</td>
-            <td>100</td>
-            <td>17.02.21</td>
-          </tr>
-          <tr class="clickable-row" data-href="one">
-            <td>1</td>
-            <td>Happy Summer School</td>
-            <td>100</td>
-            <td>17.02.21</td>
-          </tr>
-          <tr class="clickable-row" data-href="one">
-            <td>1</td>
-            <td>Happy Summer School</td>
-            <td>100</td>
-            <td>17.02.21</td>
-          </tr>
-          <tr class="clickable-row" data-href="one">
-            <td>1</td>
-            <td>Happy Summer School</td>
-            <td>100</td>
-            <td>17.02.21</td>
-          </tr>
-          <tr class="clickable-row" data-href="one">
-            <td>1</td>
-            <td>Happy Summer School</td>
-            <td>100</td>
-            <td>17.02.21</td>
-          </tr>
-          <tr class="clickable-row" data-href="one">
-            <td>1</td>
-            <td>Happy Summer School</td>
-            <td>100</td>
-            <td>17.02.21</td>
-          </tr>
-          <tr class="clickable-row" data-href="one">
-            <td>1</td>
-            <td>Happy Summer School</td>
-            <td>100</td>
-            <td>17.02.21</td>
-          </tr>
-          <tr class="clickable-row" data-href="one">
-            <td>1</td>
-            <td>Happy Summer School</td>
-            <td>100</td>
-            <td>17.02.21</td>
-          </tr>
-          <tr class="clickable-row" data-href="one">
-            <td>1</td>
-            <td>Happy Summer School</td>
-            <td>100</td>
-            <td>17.02.21</td>
-          </tr>
-          <tr class="clickable-row" data-href="one">
-            <td>1</td>
-            <td>Happy Summer School</td>
-            <td>100</td>
-            <td>17.02.21</td>
-          </tr>
+          {% for review in reviews %}
+              <tr class="clickable-row" data-href="/review/one/{{ review.number }}">
+                <td>{{ review.number }}</td>
+                <td>{{ review.student }}</td>
+                <td>{{ review.title }}</td>
+                <td>{{ review.date }}</td>
+              </tr>
+          {% endfor %}
         </tbody>
       </table>
     </div>
@@ -105,17 +56,19 @@
         <nav class="nav-pagination text-center">
           <ul class="pagination">
             <li>
-              <a href="#" aria-label="Previous">
+              <a href="../{{ previous_page }}" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
               </a>
             </li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
+            {% for page in pages %}
+                {% if page == current_page %}
+                    <li class="active"><a href="../{{ page }}">{{ page }}</a></li>
+                {% else %}
+                    <li><a href="../{{ page }}">{{ page }}</a></li>
+                {% endif %}
+            {% endfor %}
             <li>
-              <a href="#" aria-label="Next">
+              <a href="../{{ next_page }}" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
               </a>
             </li>
