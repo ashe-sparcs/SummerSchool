@@ -35,13 +35,11 @@
     /*width: 304px;*/
     /*height: 171px;*/
     background-size: cover;
+    background-position: center;
     cursor: pointer;
 }
 .thumbnail-title {
     display: none;
-}
-.review-image {
-  margin: auto;
 }
 
 

@@ -45,3 +45,13 @@ def review_one(request):
 def dates(request):
     context = {}
     return render(request, 'dates.html', context)
+
+
+def track1(request):
+    context = {}
+    return render(request, 'track1.html', context)
+
+
+def track2(request):
+    context = {}
+    return render(request, 'track2.html', context)
