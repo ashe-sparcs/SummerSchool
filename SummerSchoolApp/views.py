@@ -38,10 +38,13 @@ def contact(request):
 def review(request, page_number):
     context = {}
     page_number = int(page_number)
+    if page_number < 1:
+        page_number = 1
     if 'search_word' in request.GET:
         search_word = request.GET['search_word']
         query = Q(student__icontains=search_word) | Q(title__icontains=search_word) | Q(content__icontains=search_word)
         review_list = Review.objects.filter(query)
+        context['search_word'] = search_word
     else:
         review_list = Review.objects.all()
     review_list = review_list.order_by('-number')

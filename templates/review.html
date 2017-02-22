@@ -56,21 +56,41 @@
         <nav class="nav-pagination text-center">
           <ul class="pagination">
             <li>
-              <a href="../{{ previous_page }}" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
+              {% if search_word %}
+                  <a href="../{{ previous_page }}/?search_word={{ search_word }}" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                  </a>
+              {% else %}
+                  <a href="../{{ previous_page }}" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                  </a>
+              {% endif %}
             </li>
             {% for page in pages %}
                 {% if page == current_page %}
-                    <li class="active"><a href="../{{ page }}">{{ page }}</a></li>
+                    {% if search_word %}
+                        <li class="active"><a href="../{{ page }}/?search_word={{ search_word }}">{{ page }}</a></li>
+                    {% else %}
+                        <li class="active"><a href="../{{ page }}/">{{ page }}</a></li>
+                    {% endif %}
                 {% else %}
-                    <li><a href="../{{ page }}">{{ page }}</a></li>
+                    {% if search_word %}
+                        <li><a href="../{{ page }}/?search_word={{ search_word }}">{{ page }}</a></li>
+                    {% else %}
+                        <li><a href="../{{ page }}/">{{ page }}</a></li>
+                    {% endif %}
                 {% endif %}
             {% endfor %}
             <li>
-              <a href="../{{ next_page }}" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
+              {% if search_word %}
+                  <a href="../{{ next_page }}/?search_word={{ search_word }}" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                  </a>
+              {% else %}
+                  <a href="../{{ next_page }}" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                  </a>
+              {% endif %}
             </li>
           </ul>
         </nav>
