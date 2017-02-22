@@ -49,12 +49,15 @@ def review(request, page_number):
         review_list = Review.objects.all()
     review_list = review_list.order_by('-number')
     review_list_length = review_list.count()
+    max_page_number = math.ceil(review_list_length / 10)
+    if page_number > max_page_number:
+        page_number = max_page_number
     review_list_sliced = review_list[(page_number-1)*10:min([page_number*10, review_list_length])]
     context['reviews'] = review_list_sliced
-    context['pages'] = [(x+1) for x in range(math.ceil(review_list_length / 10))]
+    context['pages'] = [(x+1) for x in range(max_page_number)]
     context['current_page'] = page_number
-    context['previous_page'] = page_number - 1
-    context['next_page'] = page_number + 1
+    context['previous_page'] = max([page_number - 1, 1])
+    context['next_page'] = min([page_number + 1, len(context['pages'])])
     print(review_list_length)
     print(context['pages'])
     return render(request, 'review.html', context)
