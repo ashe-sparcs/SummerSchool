@@ -36,7 +36,10 @@ def gallery(request, page_number):
     max_page_number = math.ceil(image_list_length / 12)
     if page_number > max_page_number:
         page_number = max_page_number
-    image_list_sliced = image_list[(page_number - 1) * 12:min([page_number * 12, image_list_length])]
+    if image_list_length == 0:
+        image_list_sliced = []
+    else:
+        image_list_sliced = image_list[(page_number - 1) * 12:min([page_number * 12, image_list_length])]
     image_title_filename_list = [(img.title, img.get_filename()) for img in image_list_sliced]
     context['image_title_filename_list'] = image_title_filename_list
     context['pages'] = [(x + 1) for x in range(max_page_number)]
@@ -73,7 +76,10 @@ def review(request, page_number):
     max_page_number = math.ceil(review_list_length / 10)
     if page_number > max_page_number:
         page_number = max_page_number
-    review_list_sliced = review_list[(page_number-1)*10:min([page_number*10, review_list_length])]
+    if review_list_length == 0:
+        review_list_sliced = []
+    else:
+        review_list_sliced = review_list[(page_number-1)*10:min([page_number*10, review_list_length])]
     context['reviews'] = review_list_sliced
     context['pages'] = [(x+1) for x in range(max_page_number)]
     context['current_page'] = page_number

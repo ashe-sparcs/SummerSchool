@@ -31,9 +31,11 @@
             </div>
         </div>
         <div class="row gallery">
-          <div class="col-lg-3">
-            <div class="thumbnail" data-toggle="modal" data-target="#myModal" data-title="Burn the trash doves" data-url="/media/image/burndoves.jpg" style="background-image: url(/media/image/burndoves.jpg)"></div>
-          </div>
+          {% if not image_title_filename_list %}
+              <div class="col-lg-12 text-center">
+                <p>No search results.</p>
+              </div>
+          {% endif %}
           {% for img_title_filename in image_title_filename_list %}
             <div class="col-lg-3">
               <div class="thumbnail" data-toggle="modal" data-target="#myModal" data-title="{{ img_title_filename.0 }}" data-url="/media/image/{{ img_title_filename.1 }}" style="background-image: url(/media/image/{{ img_title_filename.1 }})"></div>

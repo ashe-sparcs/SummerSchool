@@ -37,26 +37,32 @@
     </div><!-- /.carousel -->
 {% endblock after_navbar %}
 {% block content %}
-    <!-- Promotion Video -->
-    <div class="col-lg-6">
-      <h2>Promotion Video</h2>
-      <video width="100%" height="100%" controls>
-          <source src="/media/image/zarya.mp4" type="video/mp4">
-      </video>
-    </div><!-- /.col-lg-6 -->
-    <!-- Testimonials -->
-    <div class="col-lg-6">
-      <h2>Testimonials</h2>
-      <div class="row gallery">
-          <div class="col-lg-4">
-            <div class="thumbnail" style="background-image: url(/media/image/burndoves.jpg)"></div>
+    <div class="row row-eq-height">
+        <!-- Promotion Video -->
+        <div class="col-lg-6">
+          <h2>Promotion Video</h2>
+          <video width="100%" height="100%" controls>
+              <source src="/media/image/zarya.mp4" type="video/mp4">
+          </video>
+        </div><!-- /.col-lg-6 -->
+        <!-- Testimonials -->
+        <div class="col-lg-6">
+          <h2>Testimonial</h2>
+          <div width="100%" height="100%" class="panel panel-default">
+            <div class="panel-body">
+              <div class="row gallery">
+                <div class="col-lg-4">
+                  <div class="thumbnail" style="background-image: url(/media/image/burndoves.jpg)"></div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="thumbnail" style="background-image: url(/media/image/burndoves.jpg)"></div>
+                </div>
+              </div>
+            </div>
+            <div class="panel-footer">Panel footer</div>
           </div>
-          <div class="col-lg-4">
-            <div class="thumbnail" style="background-image: url(/media/image/burndoves.jpg)"></div>
-          </div>
-      </div>
-      </div>
-    </div><!-- /.col-lg-6 -->
+        </div> <!-- /.col-lg-6 -->
+    </div>
     <div id="img-modal" class="modal fade" role="dialog">
       <div class="modal-dialog">
         <!-- Modal content-->
