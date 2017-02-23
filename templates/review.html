@@ -39,18 +39,19 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Student</th>
+                <th>Year</th>
                 <th>Title</th>
-                <th>Date</th>
+                <th>Student</th>
+
             </tr>
         </thead>
         <tbody>
           {% for review in reviews %}
               <tr class="clickable-row" data-href="/review/one/{{ review.number }}">
                 <td>{{ review.number }}</td>
-                <td>{{ review.student }}</td>
+                <td>{{ review.year }}</td>
                 <td>{{ review.title }}</td>
-                <td>{{ review.date }}</td>
+                <td>{{ review.student }}</td>
               </tr>
           {% endfor %}
         </tbody>

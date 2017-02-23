@@ -98,7 +98,11 @@ def review(request, page_number):
 
 def review_one(request, number):
     context = {}
-    context['review'] = Review.objects.filter(number=number)[0]
+    review = Review.objects.filter(number=number)[0]
+    review_image_list = review.reviewimage_set.all()
+    review_image_name_list = [x.get_filename() for x in review_image_list]
+    context['review'] = review
+    context['review_image_name_list'] = review_image_name_list
     return render(request, 'review_one.html', context)
 
 
