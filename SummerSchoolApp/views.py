@@ -20,18 +20,21 @@ def base(request):
     return render(request, 'base.html', context)
 
 
-def gallery(request, page_number):
+def gallery(request, year, page_number):
     context = {}
     divider = 12
     page_number = int(page_number)
+    year = int(year)
     if page_number < 1:
         page_number = 1
+    if year == 0:
+        image_list = Image.objects.all()
+    else:
+        image_list = Image.objects.filter(year=year)
     if 'search_word' in request.GET:
         search_word = request.GET['search_word']
         image_list = Image.objects.filter(title__icontains=search_word)
         context['search_word'] = search_word
-    else:
-        image_list = Image.objects.all()
     image_list = image_list.order_by('-number')
     image_list_length = image_list.count()
     max_page_number = math.ceil(image_list_length / divider)
@@ -42,6 +45,10 @@ def gallery(request, page_number):
     else:
         image_list_sliced = image_list[(page_number - 1) * divider:min([page_number * divider, image_list_length])]
     image_title_filename_list = [(img.title, img.get_filename()) for img in image_list_sliced]
+    if year == 0:
+        context['year'] = 'all years'
+    else:
+        context['year'] = year
     context['image_title_filename_list'] = image_title_filename_list
     context['pages'] = [(x + 1) for x in range(max_page_number)]
     context['current_page'] = page_number

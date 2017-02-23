@@ -19,3 +19,11 @@ class Image(models.Model):
 
     def get_filename(self):
         return os.path.basename(self.content.name)
+
+
+class ReviewImage(models.Model):
+    content = models.FileField(upload_to='media/review_image')
+    review = models.ForeignKey(Review, on_delete=models.CASCADE)
+
+    def get_filename(self):
+        return os.path.basename(self.content.name)

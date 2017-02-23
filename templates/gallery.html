@@ -13,7 +13,7 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-lg-6">
-                    <h1>Gallery</h1>
+                    <h1>Gallery of {{ year }}</h1>
                 </div>
                 <div class="col-lg-6 gallery-search">
                     <br>
@@ -33,7 +33,11 @@
         <div class="row gallery">
           {% if not image_title_filename_list %}
               <div class="col-lg-12 text-center">
-                <p>No search results.</p>
+                {% if year == 2015 %}
+                    <p>Cancelled for MERS</p>
+                {% else %}
+                    <p>No pictures found.</p>
+                {% endif %}
               </div>
           {% endif %}
           {% for img_title_filename in image_title_filename_list %}
