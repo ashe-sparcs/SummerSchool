@@ -22,6 +22,7 @@ def base(request):
 
 def gallery(request, page_number):
     context = {}
+    divider = 12
     page_number = int(page_number)
     if page_number < 1:
         page_number = 1
@@ -33,13 +34,13 @@ def gallery(request, page_number):
         image_list = Image.objects.all()
     image_list = image_list.order_by('-number')
     image_list_length = image_list.count()
-    max_page_number = math.ceil(image_list_length / 12)
+    max_page_number = math.ceil(image_list_length / divider)
     if page_number > max_page_number:
         page_number = max_page_number
     if image_list_length == 0:
         image_list_sliced = []
     else:
-        image_list_sliced = image_list[(page_number - 1) * 12:min([page_number * 12, image_list_length])]
+        image_list_sliced = image_list[(page_number - 1) * divider:min([page_number * divider, image_list_length])]
     image_title_filename_list = [(img.title, img.get_filename()) for img in image_list_sliced]
     context['image_title_filename_list'] = image_title_filename_list
     context['pages'] = [(x + 1) for x in range(max_page_number)]
