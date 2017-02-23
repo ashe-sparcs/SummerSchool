@@ -1,4 +1,5 @@
 from django.db import models
+import os
 
 
 # Create your models here.
@@ -8,3 +9,13 @@ class Review(models.Model):
     title = models.CharField(max_length=100)
     date = models.DateField()
     content = models.TextField()
+
+
+class Image(models.Model):
+    number = models.IntegerField()
+    title = models.CharField(max_length=100)
+    date = models.DateField()
+    content = models.FileField(upload_to='media/image')
+
+    def get_filename(self):
+        return os.path.basename(self.content.name)

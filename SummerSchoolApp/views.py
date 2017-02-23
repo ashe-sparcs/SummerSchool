@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Review
+from .models import *
 from django.db.models import Q
 import math
 
@@ -20,8 +20,29 @@ def base(request):
     return render(request, 'base.html', context)
 
 
-def gallery(request):
+def gallery(request, page_number):
     context = {}
+    page_number = int(page_number)
+    if page_number < 1:
+        page_number = 1
+    if 'search_word' in request.GET:
+        search_word = request.GET['search_word']
+        image_list = Image.objects.filter(title__icontains=search_word)
+        context['search_word'] = search_word
+    else:
+        image_list = Image.objects.all()
+    image_list = image_list.order_by('-number')
+    image_list_length = image_list.count()
+    max_page_number = math.ceil(image_list_length / 12)
+    if page_number > max_page_number:
+        page_number = max_page_number
+    image_list_sliced = image_list[(page_number - 1) * 12:min([page_number * 12, image_list_length])]
+    image_title_filename_list = [(img.title, img.get_filename()) for img in image_list_sliced]
+    context['image_title_filename_list'] = image_title_filename_list
+    context['pages'] = [(x + 1) for x in range(max_page_number)]
+    context['current_page'] = page_number
+    context['previous_page'] = max([page_number - 1, 1])
+    context['next_page'] = min([page_number + 1, len(context['pages'])])
     return render(request, 'gallery.html', context)
 
 
@@ -58,8 +79,6 @@ def review(request, page_number):
     context['current_page'] = page_number
     context['previous_page'] = max([page_number - 1, 1])
     context['next_page'] = min([page_number + 1, len(context['pages'])])
-    print(review_list_length)
-    print(context['pages'])
     return render(request, 'review.html', context)
 
 

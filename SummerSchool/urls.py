@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^$', views.home),
     url(r'^about/', views.about),
     url(r'^base/', views.base),
-    url(r'^gallery/', views.gallery),
+    url(r'^gallery/page/([0-9]+)/', views.gallery),
     url(r'^faq/', views.faq),
     url(r'^contact/', views.contact),
     url(r'^review/one/([0-9]+)/$', views.review_one),
