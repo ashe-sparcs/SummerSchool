@@ -27,3 +27,7 @@ class ReviewImage(models.Model):
 
     def get_filename(self):
         return os.path.basename(self.content.name)
+
+
+# class Schedule(models.Model):
+#     academic_schedule = models.CharField(max_length=)

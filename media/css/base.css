@@ -33,7 +33,13 @@ body {
   width: auto;
 }
 
+#navbar > ul > li > a {
+  font-family: "Avenir Next";
+}
 
+#navbar > ul > .dropdown > ul > li > a {
+  font-family: "Avenir Next";
+}
 /* MARKETING CONTENT
 -------------------------------------------------- */
 

@@ -13,7 +13,7 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-lg-6">
-                    <h1>Gallery of {{ year }}</h1>
+                    <h1>Photo Book of {{ year }}</h1>
                 </div>
                 <div class="col-lg-6 gallery-search">
                     <br>
@@ -41,7 +41,7 @@
               </div>
           {% endif %}
           {% for img_title_filename in image_title_filename_list %}
-            <div class="col-lg-3">
+            <div class="col-lg-4">
               <div class="thumbnail" data-toggle="modal" data-target="#myModal" data-title="{{ img_title_filename.0 }}" data-url="/media/image/{{ img_title_filename.1 }}" style="background-image: url(/media/image/{{ img_title_filename.1 }})"></div>
             </div>
           {% endfor %}

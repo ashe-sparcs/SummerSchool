@@ -66,5 +66,7 @@ __pycache__/
 local_settings.py
 db.sqlite3
 media/image
+media/review_image
+media/syllabus
 
 # End of https://www.gitignore.io/api/django

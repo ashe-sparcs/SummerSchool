@@ -7,6 +7,11 @@ import math
 # Create your views here.
 def home(request):
     context = {}
+    review = Review.objects.filter(number=1)[0]
+    review_image = review.reviewimage_set.all()
+    review_image_filename_list = [x.get_filename() for x in review_image[:2]]
+    context['review'] = review
+    context['filename_list'] = review_image_filename_list
     return render(request, 'home.html', context)
 
 
@@ -22,7 +27,7 @@ def base(request):
 
 def gallery(request, year, page_number):
     context = {}
-    divider = 12
+    divider = 9
     page_number = int(page_number)
     year = int(year)
     if page_number < 1:
