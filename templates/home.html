@@ -53,16 +53,18 @@
         <div class="col-lg-6">
           <h2>Testimonial</h2>
           <div class="panel panel-default">
-            <div class="panel-body" style="padding: 10px">
+            <div class="panel-body" style="padding: 0px">
               <div class="row gallery">
                 {% for filename in filename_list %}
-                    <div class="col-lg-6">
+                    <div class="col-lg-6" style="padding: 0;">
                       <div class="thumbnail" style="background-image: url(/media/image/{{ filename }})"></div>
                     </div>
                 {% endfor %}
               </div>
-              <div class="lg-col-6 text-center"><h4>{{ review.title }}</h4></div>
-              <div class="lg-col-6 text-right" style="margin-right: 20px;"><h6>By {{ review.student }}</h6></div>
+              <div class="col-lg-12" style="padding: 0">
+                  <div class="col-lg-7"><a href="/review/one/{{ review.number }}"><h4>{{ review.title }}</h4></a></div>
+                  <div class="col-lg-5 text-right" style="margin-top: 5px"><h6>By {{ review.student }}</h6></div>
+              </div>
             </div>
 {#            <div class="panel-footer">#}
 {#                <div class="lg-col-6 text-center"><h4>Hyundai trip was great</h4></div>#}
