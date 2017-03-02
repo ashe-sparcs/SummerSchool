@@ -29,5 +29,26 @@ class ReviewImage(models.Model):
         return os.path.basename(self.content.name)
 
 
-# class Schedule(models.Model):
-#     academic_schedule = models.CharField(max_length=)
+class Course(models.Model):
+    course_type = models.IntegerField(default=1)
+    course_no = models.CharField(max_length=10)
+    course_title = models.CharField(max_length=100)
+    credit = models.IntegerField(default=3)
+    professor = models.CharField(max_length=50)
+    syllabus = models.FileField(upload_to='media/syllabus')
+    is_edu_3 = models.BooleanField(default=False)
+
+    def get_filename(self):
+        return os.path.basename(self.content.name)
+
+
+class ImportantDate(models.Model):
+    number = models.IntegerField()
+    academic_schedule = models.CharField(max_length=100)
+    date = models.CharField(max_length=50)
+
+
+class QuestionAndAnswer(models.Model):
+    number = models.IntegerField()
+    question = models.TextField()
+    answer = models.TextField()
