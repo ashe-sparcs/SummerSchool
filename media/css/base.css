@@ -14,7 +14,7 @@ body {
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
 .navbar-wrapper {
   position: absolute;
-  top: 100px;
+  top: 150px;
   right: 0;
   left: 0;
   z-index: 20;
@@ -23,7 +23,20 @@ body {
   width: 100%;
 }
 .container.marketing {
-  margin-top: 150px;
+  margin-top: 170px;
+}
+.logo-image {
+  position: absolute;
+  height: 150px;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-position: center;
+}
+.dropdown-menu {
+  min-width: 100px;
+  width: 100%;
+  border-radius: 0;
 }
 
 /* Flip around the padding for proper display in narrow viewports */
@@ -69,7 +82,7 @@ body {
 @media (min-width: 768px) {
   /* Navbar positioning foo */
   .navbar-wrapper {
-    top: 100px;
+    top: 150px;
   }
   .navbar-wrapper .container {
     padding-right: 15px;
