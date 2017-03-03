@@ -1,10 +1,10 @@
 from django.db import models
 import os
+import datetime
 
 
 # Create your models here.
 class Review(models.Model):
-    number = models.IntegerField()
     student = models.CharField(max_length=50)
     title = models.CharField(max_length=100)
     year = models.IntegerField()
@@ -12,8 +12,7 @@ class Review(models.Model):
 
 
 class Image(models.Model):
-    number = models.IntegerField()
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, default='Photo')
     year = models.IntegerField()
     content = models.FileField(upload_to='media/image')
 
@@ -43,7 +42,6 @@ class Course(models.Model):
 
 
 class ImportantDate(models.Model):
-    number = models.IntegerField()
     academic_schedule = models.CharField(max_length=100)
     date = models.CharField(max_length=50)
 

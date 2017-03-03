@@ -40,7 +40,7 @@ def gallery(request, year, page_number):
         search_word = request.GET['search_word']
         image_list = Image.objects.filter(title__icontains=search_word)
         context['search_word'] = search_word
-    image_list = image_list.order_by('-number')
+    image_list = image_list.order_by('-id')
     image_list_length = image_list.count()
     max_page_number = math.ceil(image_list_length / divider)
     if page_number > max_page_number:
@@ -85,7 +85,7 @@ def review(request, page_number):
         context['search_word'] = search_word
     else:
         review_list = Review.objects.all()
-    review_list = review_list.order_by('-number')
+    review_list = review_list.order_by('-id')
     review_list_length = review_list.count()
     max_page_number = math.ceil(review_list_length / 10)
     if page_number > max_page_number:
@@ -114,7 +114,7 @@ def review_one(request, number):
 
 def dates(request):
     context = {}
-    context['dates'] = ImportantDate.objects.all().order_by('number')
+    context['dates'] = ImportantDate.objects.all().order_by('id')
     return render(request, 'dates.html', context)
 
 
