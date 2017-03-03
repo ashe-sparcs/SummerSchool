@@ -1,5 +1,6 @@
 from django.db import models
 import os
+import datetime
 
 
 # Create your models here.
@@ -7,14 +8,14 @@ class Review(models.Model):
     number = models.IntegerField()
     student = models.CharField(max_length=50)
     title = models.CharField(max_length=100)
-    year = models.IntegerField()
+    year = models.IntegerField(default=datetime.datetime.now().year)
     content = models.TextField()
 
 
 class Image(models.Model):
     number = models.IntegerField()
     title = models.CharField(max_length=100)
-    year = models.IntegerField()
+    year = models.IntegerField(default=datetime.datetime.now().year)
     content = models.FileField(upload_to='media/image')
 
     def get_filename(self):
