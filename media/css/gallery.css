@@ -22,7 +22,7 @@
     background-position: center;
     cursor: pointer;
 }
-.thumbnail:hover {
+.crop:hover {
     opacity: 0.7;
 }
 .thumbnail-title {
