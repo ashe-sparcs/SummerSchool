@@ -1,6 +1,20 @@
 .gallery {
     margin: auto;
 }
+.crop {
+    width: 260px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.crop > img {
+    width: 520px;
+    height: 300px;
+    margin: -75px 0 0 -130px;
+}
 .thumbnail {
     /*width: 304px;*/
     /*height: 171px;*/
@@ -16,10 +30,10 @@
 }
 /* The Modal (background) */
 .modal {
-    margin-top: 50px;
+    /*margin-top: 50px;*/
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 3; /* Sit on top */
+    z-index: 4; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
