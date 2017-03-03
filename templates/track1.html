@@ -13,6 +13,9 @@
         <div class="page-header">
             <h1>Track 1: Course-oriented Program</h1>
         </div>
+        <div class="col-lg-12" style="height: 300px; margin-bottom: 10px; background-image: url(/media/image/track.jpg); background-size: cover; background-position: center">
+
+        </div>
         <h3><b>2017 KISS Track 1</b></h3>
         <p>Students may select up two courses from the list below. Medium of instruction is English for all courses. This year, we are offering 5 courses that are based on Education 3.0 courses/materials that are different from traditional courses in that the class time will consist of interactive activities and discussions instead of lectures. This year, we have a special course that will be open to all KISS students: a 1 week course (1 credit) K-School course called "Understanding Startups"; an entrepreneurship class that will help students better understand business startups. </p>
         <p>The classes will begin in the week of July 3rd, 2017 to end in the week of July 28th, 2017. For more details on the important dates, please refer to the Application Procedure page.</p>
@@ -48,55 +51,15 @@
             </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>STP243</td>
-            <td>Humans, Machines, and Society (For Undergraduate Students Only)</td>
-            <td>3</td>
-            <td>Chihyung Jeon</td>
-            <td><a href="/media/syllabus/Syllabus_humans%20machines%20society%20summer%202017.pdf"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
-          </tr>
-          <tr>
-            <td>ID202</td>
-            <td>Idea and Expression	</td>
-            <td>3</td>
-            <td>Ki-Young Nam</td>
-            <td><a href="/media/syllabus/%5Bmorning%5D%20Idea%20and%20Expression.pdf"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
-          </tr>
-          <tr>
-            <td>HSS472</td>
-            <td>Art and Philosophy*	</td>
-            <td>3</td>
-            <td>Woosuk Park	</td>
-            <td><a href="/media/syllabus/%5Bmorning%5D%20art%20and%20philosophy.pdf"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
-          </tr>
-          <tr>
-            <td>MS431</td>
-            <td>Nano-Biomaterials*</td>
-            <td>3</td>
-            <td>Yoon Sung Nam</td>
-            <td><a href="/media/syllabus/%5Bmorning%5D%20Nano-Biomaterials.pdf"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
-          </tr>
-          <tr>
-            <td>HSS006</td>
-            <td>Basic Korean 1 for Foreign Students A</td>
-            <td>3</td>
-            <td>Eun-young Lee</td>
-            <td><a href="/media/syllabus/%5Bmorning%5D%20Basic_Korean_1_for_Foreign_Students%20A.pdf"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
-          </tr>
-          <tr>
-            <td>AE210</td>
-            <td>Aerospace Thermodynamics*</td>
-            <td>3</td>
-            <td>Sejin Kwon</td>
-            <td><a href="/media/syllabus/Thermo-2017Summer%20(3).pdf"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
-          </tr>
-          <tr>
-            <td>HSS392</td>
-            <td>English Science Writing*</td>
-            <td>3</td>
-            <td>Mik Fanguy</td>
-            <td><a href="/media/syllabus/ESW%20HSS392%20KISS17%20(2).pdf"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
-          </tr>
+          {% for course in morning %}
+            <tr>
+                <td>{{ course.course_no }}</td>
+                <td>{{ course.course_title }}{% if course.is_edu_3 %}*{% endif %}</td>
+                <td>{{ course.credit }}</td>
+                <td>{{ course.professor }}</td>
+                <td><a href="/media/syllabus/{{ course.get_filename }}"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
+            </tr>
+          {% endfor %}
         </tbody>
       </table>
       <br>
@@ -116,34 +79,15 @@
             </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>HSS370</td>
-            <td>Vision, Brain and Art</td>
-            <td>3</td>
-            <td>Jeounghoon Kim</td>
-            <td><a href="/media/syllabus/%5Bafternoon%5D%20Vision%20Brain%20Art.pdf"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
-          </tr>
-          <tr>
-            <td>MS591</td>
-            <td>Emerging Nanofabrication Technology*</td>
-            <td>3</td>
-            <td>Yunsik Jung	</td>
-            <td><a href="/media/syllabus/MS%20591%20Emerging%20Nanofabrication%20Technologies.pdf"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
-          </tr>
-          <tr>
-            <td>NQE211</td>
-            <td>Engineering Mathematics for Nuclear Engineers*</td>
-            <td>3</td>
-            <td>Young-chul Ghim</td>
-            <td><a href="/media/syllabus/%5Bafternoon%5D%20Engineering%20Mathematics.pdf"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
-          </tr>
-          <tr>
-            <td>HSS006</td>
-            <td>Basic Korean 1 for Foreign Students B</td>
-            <td>3</td>
-            <td>Deok-Shin Kim</td>
-            <td><a href="/media/syllabus/%5Bafternoon%5D%20Basic_Korean_1_for_Foreign_Students_B.pdf"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
-          </tr>
+          {% for course in afternoon %}
+            <tr>
+                <td>{{ course.course_no }}</td>
+                <td>{{ course.course_title }}{% if course.is_edu_3 %}*{% endif %}</td>
+                <td>{{ course.credit }}</td>
+                <td>{{ course.professor }}</td>
+                <td><a href="/media/syllabus/{{ course.get_filename }}"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
+            </tr>
+          {% endfor %}
         </tbody>
       </table>
       <p>※ Courses with * mark are based on types of Education 3.0 materials.<br>※ Courses with less than 5 students will be cancelled and the students will be asked to choose a different course.</p>
@@ -164,13 +108,15 @@
             </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>KEI510</td>
-            <td>Understanding Startups</td>
-            <td>1</td>
-            <td>Steve Ahn</td>
-            <td><a href="/media/syllabus/Understanding%20Startups%20(English)v3.docx"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
-          </tr>
+          {% for course in kschool %}
+            <tr>
+                <td>{{ course.course_no }}</td>
+                <td>{{ course.course_title }}{% if course.is_edu_3 %}*{% endif %}</td>
+                <td>{{ course.credit }}</td>
+                <td>{{ course.professor }}</td>
+                <td><a href="/media/syllabus/{{ course.get_filename }}"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
+            </tr>
+          {% endfor %}
         </tbody>
       </table>
       <p>※ 1 week special course</p>

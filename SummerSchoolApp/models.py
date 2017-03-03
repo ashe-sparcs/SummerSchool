@@ -39,7 +39,7 @@ class Course(models.Model):
     is_edu_3 = models.BooleanField(default=False)
 
     def get_filename(self):
-        return os.path.basename(self.content.name)
+        return os.path.basename(self.syllabus.name)
 
 
 class ImportantDate(models.Model):

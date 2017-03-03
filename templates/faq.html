@@ -30,25 +30,19 @@
             </div>
         </div>
         <div id="faq-group" class="list-group">
-          <a href="#" class="list-group-item">
-              <h4>Q1. After I’ve just submitted the application, pop-up page about payment was blocked. What can I do?</h4>
-              <p hidden>A.<br>1. Which browser did you use? Can you please try to change to Chrome or Internet Explorer?<br>2.  Allowing pop-up page ->refresh ->submit (->then payment page would pop up)<br>3.  If all of your tries do not work, then please let us know.</p>
-          </a>
-          <a href="#" class="list-group-item">
-              <h4>Q2. Do I need to submit official transcript?</h4>
-              <p hidden>A. We only accept an official transcript, so please check if your transcript is official. Please understand that you can either upload <b><ins>official transcript or unofficial transcript certified by your coordinator/advisor.</ins></b></p>
-          </a>
-          <a href="#" class="list-group-item">
-              <h4>Q3. When do I have to submit the health form?</h4>
-              <p hidden>A. You must submit the health form after you are selected from us. Our fixed health form is necessary for your living in dormitory.</p>
-          </a>
+          {% for q in faq %}
+              <a href="#" class="list-group-item">
+                  <h4>Q{{ q.number }}. {{ q.question }}</h4>
+                  <p class="hidden">{{ q.answer|linebreaksbr }}</p>
+              </a>
+          {% endfor %}
         </div>
     </div>
 {% endblock content %}
 {% block script %}
     <script type="text/javascript">
         document.getElementById("nav-faq").setAttribute("class", "active");
-        $('a.list-group-item').click( function(e) {e.preventDefault(); $(this).children("p").toggle(); return false; } );
+        $('a.list-group-item').click( function(e) {e.preventDefault(); $(this).children("p").toggleClass('hidden'); return false; } );
         function faqSearch() {
             // Declare variables
             var input, filter, ul, li, a, i;

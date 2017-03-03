@@ -64,6 +64,7 @@ def gallery(request, year, page_number):
 
 def faq(request):
     context = {}
+    context['faq'] = QuestionAndAnswer.objects.all()
     return render(request, 'faq.html', context)
 
 
@@ -113,11 +114,15 @@ def review_one(request, number):
 
 def dates(request):
     context = {}
+    context['dates'] = ImportantDate.objects.all().order_by('number')
     return render(request, 'dates.html', context)
 
 
 def track1(request):
     context = {}
+    context['morning'] = Course.objects.filter(course_type=1)
+    context['afternoon'] = Course.objects.filter(course_type=2)
+    context['kschool'] = Course.objects.filter(course_type=3)
     return render(request, 'track1.html', context)
 
 
