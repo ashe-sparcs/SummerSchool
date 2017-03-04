@@ -76,7 +76,7 @@
                 <li id="nav-contact"><a href="/contact">Contact Us</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                  <li><a href="https://www.facebook.com/summeratkaist/"><i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i></a></li>
+                  <li><a id="facebook-icon" href="https://www.facebook.com/summeratkaist/"><i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i></a></li>
               </ul>
             </div>
           </div>
@@ -87,7 +87,7 @@
     {% endblock %}
     <!-- Wrap the rest of the page in another container to center all the content. -->
     <div class="container marketing">
-      <div class="row" style="width: 900px; margin: auto;">
+      <div class="row" style="width: 1000px; margin: auto;">
           {% block content %}
           {% endblock %}
       </div>
@@ -147,9 +147,9 @@
       }
 
       $('ul.nav li.dropdown').hover(function() {
-          $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(100);
+          $(this).find('.dropdown-menu').stop(true, true).delay(10).fadeIn(10);
       }, function() {
-          $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(100);
+          $(this).find('.dropdown-menu').stop(true, true).delay(10).fadeOut(10);
       });
     </script>
     {% block script %}
