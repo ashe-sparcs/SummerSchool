@@ -28,10 +28,11 @@
 <body>
     <!-- LOGO IMAGE
     ================================================== -->
-    <a href="/"><div class="logo-image" style="background-image: url(/media/image/sample_logo.jpg); background-size: cover;"></div></a>
+{#    <a href="/"><div class="logo-image" style="background-image: url(/media/image/logo.jpg); background-size: cover;"></div></a>#}
+    <a href="/"><img id="logo-image" class="logo-image" src="/media/image/logo.jpg"></a>
     <!-- NAVBAR
     ================================================== -->
-    <div class="navbar-wrapper">
+    <div id="navigation-bar" class="navbar-wrapper">
         <nav id="sticky-navbar" class="navbar navbar-inverse navbar-fixed-below-logo" style="border-radius: 0">
           <div class="container">
             <div class="navbar-header">
@@ -133,10 +134,12 @@
     <script src="/media/js/jquery-3.1.1.min.js"></script>
     <script src="/media/js/bootstrap.min.js"></script>
     <script type="text/javascript">
+      $('#navigation-bar').css('top', document.getElementById('logo-image').height + 'px');
+      $('.container.marketing').css('margin-top', document.getElementById('logo-image').height + 70 + 'px')
       var header = $("#sticky-navbar");
       window.onscroll = nav;
       function nav() {
-          if (window.pageYOffset > 200) {
+          if (window.pageYOffset > 300) {
               header.addClass('navbar-fixed-top');
           } else {
               header.removeClass('navbar-fixed-top');

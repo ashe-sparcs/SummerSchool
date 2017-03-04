@@ -7,7 +7,8 @@ import math
 # Create your views here.
 def home(request):
     context = {}
-    review = Review.objects.filter(number=1)[0]
+    review = Review.objects.filter(id=12)[0]
+    # id=... 부분에 넣고 싶은 후기에 해당하는 id를 적어넣으시면됩니다. id는 admin page -> review에서 보실 수 있습니다.
     review_image = review.reviewimage_set.all()
     review_image_filename_list = [x.get_filename() for x in review_image[:2]]
     context['review'] = review
@@ -104,7 +105,7 @@ def review(request, page_number):
 
 def review_one(request, number):
     context = {}
-    review = Review.objects.filter(number=number)[0]
+    review = Review.objects.filter(id=number)[0]
     review_image_list = review.reviewimage_set.all()
     review_image_name_list = [x.get_filename() for x in review_image_list]
     context['review'] = review

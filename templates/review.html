@@ -47,8 +47,8 @@
         </thead>
         <tbody>
           {% for review in reviews %}
-              <tr class="clickable-row" data-href="/review/one/{{ review.number }}">
-                <td>{{ review.number }}</td>
+              <tr class="clickable-row" data-href="/review/one/{{ review.id }}">
+                <td>{{ review.id }}</td>
                 <td>{{ review.year }}</td>
                 <td>{{ review.title }}</td>
                 <td>{{ review.student }}</td>

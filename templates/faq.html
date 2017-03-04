@@ -33,7 +33,7 @@
           {% for q in faq %}
               <a href="#" class="list-group-item">
                   <h4>Q{{ q.number }}. {{ q.question }}</h4>
-                  <p class="hidden">{{ q.answer|linebreaksbr }}</p>
+                  <p class="hidden">A. {{ q.answer|linebreaksbr }}</p>
               </a>
           {% endfor %}
         </div>

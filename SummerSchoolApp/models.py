@@ -27,6 +27,9 @@ class ReviewImage(models.Model):
     def get_filename(self):
         return os.path.basename(self.content.name)
 
+    def get_review_title(self):
+        return self.review.title
+
 
 class Course(models.Model):
     course_type = models.IntegerField(default=1)
